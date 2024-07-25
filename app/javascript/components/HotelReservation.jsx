@@ -9,10 +9,14 @@ const HotelReservation = () => {
     const [selectedMadinaHotel, setSelectedMadinaHotel] = useState(null);
     const [selectedMakkahRoom, setSelectedMakkahRoom] = useState(null);
     const [selectedMadinaRoom, setSelectedMadinaRoom] = useState(null);
+
     useEffect(() => {
         const fetchHotels = async () => {
             try {
                 const response = await fetch('/hotels/index');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
                 const data = await response.json();
                 setMakkahHotels(data.makkah_hotels);
                 setMadinaHotels(data.madina_hotels);
@@ -23,12 +27,12 @@ const HotelReservation = () => {
 
         fetchHotels();
     }, []);
+
     return (
         <div>
             < Reservation
-
-                makkahHotels={makkahHotels} // Ensure this is passed correctly
-                madinaHotels={madinaHotels} // Ensure this is passed correctly
+                makkahHotels={makkahHotels}
+                madinaHotels={madinaHotels}
                 selectedMakkahHotel={selectedMakkahHotel}
                 selectedMadinaHotel={selectedMadinaHotel}
                 selectedMakkahRoom={selectedMakkahRoom}

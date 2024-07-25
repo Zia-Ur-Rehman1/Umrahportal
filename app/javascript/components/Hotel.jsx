@@ -24,7 +24,7 @@ const Hotel = ({ hotels, selectedHotel, onHotelChange, selectedRoom, onRoomChang
 
             {selectedHotel && (
                 <div>
-                    <h4>{selectedHotel.name} Rooms</h4>
+                    <h4>{selectedHotel.name}</h4>
                     <select onChange={handleRoomChange} value={selectedRoom?.id || ''}>
                         <option value="" disabled>Select Room</option>
                         {selectedHotel.rooms.map(room => (
