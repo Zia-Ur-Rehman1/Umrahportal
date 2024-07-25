@@ -1,0 +1,2 @@
+class RiyalRate < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class UmrahVisa < ApplicationRecord
+end
